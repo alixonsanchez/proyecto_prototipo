@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ action }} Transacción</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>{{ action }} Transacción</h1>
+    <form method="post">
+        <label for="id_transaccion">ID Transacción:</label>
+        <input type="text" name="id_transaccion" required><br>
+
+        <label for="id_cliente">ID Cliente:</label>
+        <input type="text" name="id_cliente" required><br>
+
+        <label for="monto">Monto:</label>
+        <input type="number" name="monto" required><br>
+
+        <label for="fecha">Fecha:</label>
+        <input type="date" name="fecha" required><br>
+
+        <label for="tipo">Tipo:</label>
+        <select name="tipo" required>
+            <option value="depósito">Depósito</option>
+            <option value="retiro">Retiro</option>
+        </select><br>
+
+        <button type="submit">{{ action }} Transacción</button>
+    </form>
+    <a href="{{ url_for('index') }}">Volver al inicio</a>
+
+    {% if transacciones %}
+    <h2>Transacciones del Cliente</h2>
+    <ul>
+        {% for transaccion in transacciones %}
+            <li>{{ transaccion.id_transaccion }} - {{ transaccion.monto }} - {{ transaccion.fecha }} - {{ transaccion.tipo }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+</body>
+</html>

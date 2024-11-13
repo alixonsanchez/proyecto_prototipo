@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Banco - Gestión de Clientes y Transacciones</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Sistema NoSQL para la Optimización de Datos Transaccionales Bancarios</h1>
+    <nav>
+        <a href="{{ url_for('nuevo_cliente') }}">Crear Cliente</a> |
+        <a href="{{ url_for('nueva_transaccion') }}">Crear Transacción</a>
+    </nav>
+</body>
+</html>
